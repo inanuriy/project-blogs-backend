@@ -3,14 +3,14 @@ const { connection } = require("../../config");
 module.exports = {
   getAll: (req, res) => {
     try {
-      connection.query(`SELECT * FROM Blogs`, (error, results, fields) => {
+      connection.query(`SELECT * FROM Author`, (error, results, fields) => {
         if (error) {
           res
             .status(500)
             .send({ message: `there is some problems: ${error.sqlMessage}` });
         } else {
           res.status(200).send({
-            message: "show all data from Blogs",
+            message: "show all data from Author",
             data: results
           });
         }
@@ -19,47 +19,6 @@ module.exports = {
       console.log(error);
     }
   }
-
-  // getByID: (req, res) => {
-  //   try {
-  //     const { id } = req.param;
-  //     connection.query(`SELECT * FROM Blogs WHERE ID = ${id}`, (error, results, fields) => {
-  //       if (error) {
-  //         res
-  //           .status(500)
-  //           .send({ message: `There's some problem: ${error.sqlMessage}` })
-  //       } else {
-  //         res.status(200)
-  //           .send({
-  //             message: `Show data by id ${id}`, data: results
-  //           })
-  //       }
-  //     });
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
-
-  // getByEmail: (req, res) => {
-  //   try {
-  //     const { email } = req.params;
-  //     connection.query(`SELECT * Blogs FROM Blogs LEFT JOIN Users ON Blogs.AuthorID = Users.ID WHERE Users.Email = ${email}`, (
-  //       error,
-  //       results,
-  //       fields
-  //     ) => {
-  //       if (error) {
-  //         console.log(error);
-  //       } else {
-  //         res.status(200).send({
-  //           message: `Show User by email ${email}`, data: results
-  //         });
-  //       };
-  //     });
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
 
   // getOne: (req, res) => {
   //   try {
@@ -139,4 +98,24 @@ module.exports = {
   //   }
   // },
 
+  // showByEmail: (req,res) => {
+  //   try {
+  //       const {email} = req.params;
+  //       connection.query(`SELECT Email FROM Users WHERE Email = ${email}`, req.body, function(
+  //         error,
+  //         results,
+  //         fields
+  //       ) {
+  //         if (error) {
+  //           console.log(error);
+  //         } else {
+  //           res.status(200).send({
+  //             message: `Show total tokoh with CountryID ${id} is succeeded`, data: results
+  //           });
+  //         };
+  //       });
+  //     } catch (error) {
+  //         console.log(error)
+  //     }
+  // }
 };
