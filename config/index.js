@@ -1,7 +1,18 @@
-const connection = require("./connection");
-const { PORT } = require("./environment");
+const {
+  PORT,
+  DATABASE_HOST,
+  DATABASE_NAME,
+  DATABASE_PASSWORD,
+  DATABASE_USER,
+} = require("./environment");
+
+const sequelize = require("./connection");
 
 module.exports = {
-  connection,
-  PORT
-};
+  PORT,
+  DATABASE_HOST,
+  DATABASE_NAME,
+  DATABASE_PASSWORD,
+  DATABASE_USER,
+  sequelize
+}

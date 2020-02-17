@@ -7,7 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('backend:server');
 var http = require('http');
-const { PORT, connection } = require("../config")
+const { PORT, sequelize } = require("../config")
 
 /**
  * Get port from environment and store in Express.
@@ -24,14 +24,14 @@ var server = http.createServer(app);
 
 // CREATE CONNECTION MYSQL
 
-connection.connect(function(err) {
-  if (err) {
-      console.error("error connecting: " + err.stack);
-      return;
-  }
-
-  console.log("connected to mysql database as id " + connection.threadId);
-});
+sequelize
+.authenticate()
+.then(() => {
+  console.log("Connection has been established")
+})
+.catch(err => {
+  console.log("Unable to connect database", err)
+})
 
 
 /**
