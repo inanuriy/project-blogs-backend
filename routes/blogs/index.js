@@ -1,5 +1,6 @@
 const express = require("express")
 const router = express.Router()
+const {upload} = require("../../config");
 
 router.get("/", require("./controller").getAll);
 router.get("/email/:email", require("./controller").getByEmail);

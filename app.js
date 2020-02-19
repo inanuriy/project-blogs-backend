@@ -8,7 +8,7 @@ var usersRouter = require('./routes/users');
 const cors = require('cors');
 var app = express();
 
-app.use(cors);
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -28,7 +28,7 @@ app.use(expressJWT({secret:"ITSASECRET"}).unless({
 app.use((err, req, res, next) => {
     if (err.name === "UnauthorizedError") {
         return res.status(401).send({
-            message: "You are not an author"
+            message: "You are not an author, please register"
         });
     } else {
         return next();

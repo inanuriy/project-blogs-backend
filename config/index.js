@@ -8,11 +8,14 @@ const {
 
 const sequelize = require("./connection");
 
+const upload = require('./multer');
+
 module.exports = {
   PORT,
   DATABASE_HOST,
   DATABASE_NAME,
   DATABASE_PASSWORD,
   DATABASE_USER,
-  sequelize
+  sequelize, 
+  upload
 }

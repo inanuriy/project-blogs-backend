@@ -1,7 +1,7 @@
 const hashPassword = require("./hash")
-const comparePassword = require("./compared")
+const comparedPassword = require("./compared")
 
 module.exports = {
     hashPassword,
-    comparePassword
+    comparedPassword
 };

@@ -7,7 +7,7 @@ const {
   DATABASE_NAME
 } = require("./environment");
 
-const connection = new Sequelize(
+const sequelize = new Sequelize(
   DATABASE_NAME,
   DATABASE_USER,
   DATABASE_PASSWORD,
@@ -20,4 +20,4 @@ const connection = new Sequelize(
   }
 );
 
-module.exports = connection;
+module.exports = sequelize;
